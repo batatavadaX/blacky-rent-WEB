@@ -4,13 +4,9 @@ from aiohttp import ClientSession
 # init dir
 
 async def job():
-    aio_session = ClientSession()
-    host = os.environ.get("HOST")
+    aio_session = ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False))
     async with aio_session.get(host) as response:
-        if response.status == 200:
-            print("✅ online!"+ "\n" + "status code: 200")
-        else:
-            print("❌ offline!" + str(status))
+       print("✅ online!")
     await aio_session.close()
 
 scheduler = AsyncIOScheduler()
