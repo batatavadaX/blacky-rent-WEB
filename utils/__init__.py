@@ -3,8 +3,8 @@ from aiohttp import ClientSession
 import socket 
 
 def host():
-    host = "https://"+socket.getfqdn()
-    return host
+    host_id = "https://"+socket.getfqdn()
+    return host_id
     
 async def job():
     aio_session = ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False))
